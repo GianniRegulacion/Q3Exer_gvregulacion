@@ -1,0 +1,55 @@
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Random Number Generator and Breakdown</title>
+</head>
+<body>
+    <script>
+        let a = Math.random() * 1001;  
+        let b = parseInt(a);
+
+        document.write("Randomly generated number: " + b + "</br>");
+
+        var breakdown = "";
+
+        var ones = onesPlace(b);
+        var tens = tensPlace(b);
+        var hundreds = hundredsPlace(b);
+        var thousands = thousandsPlace(b);
+
+        if (thousands !== 0) breakdown = breakdown + thousands + "000 + ";
+
+        if (hundreds !== 0) breakdown = breakdown + hundreds + "00 + ";
+
+        if (tens !== 0) breakdown = breakdown + tens + "0 + ";
+
+        breakdown = breakdown + ones;
+
+        document.write("</br>" + "Breakdown: " + breakdown + "</br>");
+
+        currentDate = new Date().toDateString();
+        document.write("</br>" + "Result outputted: " + currentDate );
+
+        function thousandsPlace(number) {
+            return Math.floor(number / 1000);
+        }
+
+        function hundredsPlace(number) { 
+            return Math.floor((number % 1000) / 100);
+        }
+
+        function tensPlace(number){
+            return Math.floor((number % 100) / 10);
+        }
+
+        function onesPlace(number){
+            return Math.floor(number % 10);
+        }
+    </script>
+    
+</body>
+</html>
